@@ -1,10 +1,11 @@
 {
-    "name": "simple-php-mvc",
+    "name": "simple-php-mvc/todolist",
     "autoload": {
         "psr-4": {
             "Controllers\\": "controllers/",
             "Models\\": "models/",
             "Views\\": "views/",
+            "Helpers\\": "helpers/",
             "Framework\\": "framework/"
         }
     },
