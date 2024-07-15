@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Framework\Response;
 use Models\Task;
 
 class TaskController
@@ -9,12 +10,14 @@ class TaskController
     public function index()
     {
         $tasks = Task::all();
-        require 'views/task/list.php';
+        return Response::views("task/list", [
+            'tasks' => $tasks
+        ]);
     }
 
     public function create()
     {
-        require 'views/task/create.php';
+        return Response::views("task/create");
     }
 
     public function store()
@@ -24,13 +27,15 @@ class TaskController
         $task->description = $_POST['description'];
         $task->save();
 
-        header('Location: /tasks');
+        return Response::redirect("/tasks");
     }
 
     public function edit()
     {
         $task = Task::find($_GET['id']);
-        require 'views/task/edit.php';
+        return Response::views("task/edit", [
+            'task' => $task
+        ]);
     }
 
     public function update()
@@ -40,7 +45,7 @@ class TaskController
         $task->description = $_POST['description'];
         $task->save();
 
-        header('Location: /tasks');
+        return Response::redirect("/tasks");
     }
 
     public function delete()
@@ -48,6 +53,6 @@ class TaskController
         $task = Task::find($_GET['id']);
         $task->delete();
 
-        header('Location: /tasks');
+        return Response::redirect("/tasks");
     }
 }

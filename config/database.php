@@ -1,6 +1,6 @@
 <?php
 
-use Helpers\DbConnection;
+use Framework\DbConnection;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;

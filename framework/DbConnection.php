@@ -1,6 +1,6 @@
 <?php
 
-namespace Helpers;
+namespace Framework;
 
 class DbConnection {
     public static function get() {

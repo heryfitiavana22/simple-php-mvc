@@ -5,7 +5,6 @@
             "Controllers\\": "controllers/",
             "Models\\": "models/",
             "Views\\": "views/",
-            "Helpers\\": "helpers/",
             "Framework\\": "framework/"
         }
     },
