@@ -8,8 +8,8 @@ This is a simple To-Do List application built using native `PHP` with an `MVC` a
 - [x] **Routing System**: Custom routing system similar to Laravel's routing.
 - [x] **Eloquent ORM**: Database interactions are handled using Eloquent ORM.
 - [x] **Environment Configuration**: Sensitive data is managed using `.env` file.
-- [] **Validation**: Add server-side validation for form inputs.
-- [] **CSRF Protection**: Implement Cross-Site Request Forgery protection.
+- [ ] **Validation**: Add server-side validation for form inputs.
+- [ ] **CSRF Protection**: Implement Cross-Site Request Forgery protection.
 
 ## Installation
 
