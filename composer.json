@@ -1,0 +1,16 @@
+{
+    "name": "simple-php-mvc",
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "controllers/",
+            "Models\\": "models/",
+            "Views\\": "views/",
+            "Framework\\": "framework/"
+        }
+    },
+    "require": {
+        "illuminate/database": "^11.15",
+        "illuminate/events": "^11.15",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
