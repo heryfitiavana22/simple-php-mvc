@@ -41,6 +41,16 @@ This is a simple To-Do List application built using native `PHP` with an `MVC` a
     DB_PREFIX=
     ```
 
+    <details>
+      <summary><h3>If using `sqlite`</h3></summary>
+
+    ```env
+    DB_DRIVER=sqlite
+    DB_DATABASE=db_name.sqlite
+    # others...
+    ```
+    </details>    
+
 4. Run migrations to create the database tables:
     ```sh
     php migrate.php
