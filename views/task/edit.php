@@ -2,7 +2,7 @@
 
 <h1>Éditer la tâche</h1>
 
-<form action="/tasks/update" method="post">
+<form action="/tasks/update/<?= $task->id ?>" method="post">
     <input type="hidden" name="id" value="<?= $task->id ?>">
     
     <label for="title">Titre:</label>

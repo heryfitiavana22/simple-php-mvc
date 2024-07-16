@@ -17,8 +17,8 @@
             <td><?= $task->title ?></td>
             <td><?= $task->description ?></td>
             <td>
-                <a href="/tasks/edit?id=<?= $task->id ?>">Éditer</a>
-                <a href="/tasks/delete?id=<?= $task->id ?>" onclick="return confirm('Voulez-vous vraiment supprimer cette tâche ?')">Supprimer</a>
+                <a href="/tasks/edit/<?= $task->id ?>">Éditer</a>
+                <a href="/tasks/delete/<?= $task->id ?>" onclick="return confirm('Voulez-vous vraiment supprimer cette tâche ?')">Supprimer</a>
             </td>
         </tr>
     <?php endforeach; ?>

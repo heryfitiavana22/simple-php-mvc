@@ -2,7 +2,9 @@
 
 namespace Controllers;
 
+use Framework\Request;
 use Framework\Response;
+use Framework\Validator;
 use Models\Task;
 
 class TaskController
@@ -20,39 +22,48 @@ class TaskController
         return Response::views("task/create");
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $task = new Task();
-        $task->title = $_POST['title'];
-        $task->description = $_POST['description'];
-        $task->save();
-
-        return Response::redirect("/tasks");
+        $validated = Validator::validate($request->all(),  [
+            'title' => 'required|string|maxlength:255',
+            'description' => 'required|string',
+        ]);
+        $task = Task::create($validated);
+        return Response::redirect("/tasks", [
+            'task' => $task
+        ]);       
     }
 
-    public function edit()
+    public function edit(Request $request, $id)
     {
-        $task = Task::find($_GET['id']);
+        $task = Task::find($id);
         return Response::views("task/edit", [
             'task' => $task
         ]);
     }
 
-    public function update()
+    public function update(Request $request, $id)
     {
-        $task = Task::find($_POST['id']);
-        $task->title = $_POST['title'];
-        $task->description = $_POST['description'];
+        $task = Task::find($id);
+        $validated = Validator::validate($request->all(),  [
+            'title' => 'string',
+            'description' => 'string',
+        ]);
+        $task->title = $validated['title'];
+        $task->description = $validated['description'];
         $task->save();
 
-        return Response::redirect("/tasks");
+        return Response::redirect("/tasks");   
     }
 
-    public function delete()
+
+    public function delete($id)
     {
-        $task = Task::find($_GET['id']);
+        $task = Task::find($id);
+        if(!$task) return Response::json(['error' => 'Task not found'], 404);
+
         $task->delete();
 
-        return Response::redirect("/tasks");
+        return Response::redirect("/tasks");   
     }
 }
