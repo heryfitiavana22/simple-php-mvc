@@ -2,7 +2,7 @@
 
 <h1>Créer une nouvelle tâche</h1>
 
-<form action="/tasks" method="post">
+<form action="/tasks" method="POST" accept="application/json">
     <label for="title">Titre:</label>
     <input type="text" id="title" name="title">
     
